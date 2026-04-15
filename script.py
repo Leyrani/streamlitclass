@@ -157,5 +157,3 @@ st.write(
     Comparing mortality rates instead of raw death counts makes the change easier to see because the number of births varies from year to year.
     """
 )
-
-st.caption("Code comments and layout text include AI-assisted drafting where noted.")
