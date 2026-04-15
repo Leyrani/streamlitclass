@@ -1,4 +1,4 @@
-# code snippet assisted by ChatGPT
+
 
 import pandas as pd
 import streamlit as st
@@ -9,9 +9,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# -----------------------------
 # Load and prepare data
-# -----------------------------
 @st.cache_data
 def load_data():
     df = pd.read_csv("yearly_deaths_by_clinic-1.csv")
@@ -22,9 +20,8 @@ def load_data():
 
 df = load_data()
 
-# -----------------------------
 # Title and description
-# -----------------------------
+
 st.title("The Impact of Hand-Washing on Maternal Mortality")
 st.write(
     """
@@ -33,9 +30,8 @@ st.write(
     """
 )
 
-# -----------------------------
 # Sidebar filter
-# -----------------------------
+
 st.sidebar.header("Filters")
 selected_clinics = st.sidebar.multiselect(
     "Select clinic(s):",
@@ -55,9 +51,8 @@ filtered_df = df[
     (df["Year"].between(year_range[0], year_range[1]))
 ].copy()
 
-# -----------------------------
 # Summary metrics
-# -----------------------------
+
 st.subheader("Key Metrics")
 
 col1, col2, col3 = st.columns(3)
@@ -77,9 +72,8 @@ with col2:
 with col3:
     st.metric("Clinic 1 drop after 1847", f"{clinic1_drop:.2f} percentage points")
 
-# -----------------------------
 # Visualization 1: Mortality rate over time
-# -----------------------------
+
 st.subheader("Mortality Rate by Year")
 
 line_chart = (
@@ -119,9 +113,8 @@ label = (
 
 st.altair_chart(line_chart + rule + label, use_container_width=True)
 
-# -----------------------------
 # Visualization 2: Before vs. after comparison
-# -----------------------------
+
 st.subheader("Average Mortality Rate Before and After Hand-Washing")
 
 summary = (
@@ -145,9 +138,8 @@ bar_chart = (
 
 st.altair_chart(bar_chart, use_container_width=True)
 
-# -----------------------------
 # Optional data table
-# -----------------------------
+
 with st.expander("Show cleaned dataset"):
     st.dataframe(
         filtered_df[["Year", "Clinic", "Birth", "Deaths", "Mortality %"]]
@@ -155,9 +147,8 @@ with st.expander("Show cleaned dataset"):
         use_container_width=True
     )
 
-# -----------------------------
 # Findings / interpretation
-# -----------------------------
+
 st.subheader("Findings")
 st.write(
     """
