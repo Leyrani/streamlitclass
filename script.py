@@ -22,7 +22,7 @@ df = load_data()
 
 # Title and description
 
-st.title("The Impact of Hand-Washing on Maternal Mortality")
+st.title("Handwashing Demonstrated to Reduce Mortality Rates Across Multiple Clinics, Showing Importance of Widespread Adoption")
 st.write(
     """
     This Streamlit app uses data from Dr. Ignaz Semmelweis's clinics to show how mortality changed over time.
